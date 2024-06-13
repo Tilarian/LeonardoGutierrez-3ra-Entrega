@@ -10,4 +10,5 @@ urlpatterns = [
     path('probando/', views.probando, name="probando"),
     #path('usuarios/crear/<str:nombre>/<str:apellido>', views.crear_usuario, name="crear_usuario")
     path('usuarios/crear/', views.crear_usuario_v2, name="crear_usuario_v2"),
+    path('usuarios/', views.usuarios, name="usuarios")
 ]

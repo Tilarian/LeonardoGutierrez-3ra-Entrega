@@ -112,7 +112,13 @@ def crear_usuario_v2(request):
             datos = formulario.cleaned_data
             usuario = Usuario(nombre=datos.get('nombre'), apellido=datos.get('apellido'), correo=datos.get('correo'), sugerencia=datos.get('sugerencia'))
             usuario.save()
-            return redirect('inicio')
+            return redirect('usuarios')
         
     formulario = CrearFormulario()
     return render(request, 'inicio/crear_usuario_v2.html', {'formulario': formulario})
+
+def usuarios(request):
+    
+    usuarios = Usuario.objects.all()
+    
+    return render(request,'inicio/usuarios.html', {'usuarios': usuarios})
