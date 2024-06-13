@@ -4,7 +4,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 
-from inicio.models import Auto
+from inicio.models import Usuario
 
 import random
 
@@ -81,7 +81,7 @@ def probando (request):
     print(numeros)
     return render(request, 'probando_if_for.html', {'numeros': numeros})
 
-def crear_auto(request, marca, modelo):
-    auto = Auto(marca=marca, modelo=modelo)
-    auto.save()
-    return render(request, 'auto_templates/creacion.html', {"auto": auto})
+def crear_usuario(request, nombre, apellido):
+    usuario = Usuario(nombre=nombre, apellido=apellido)
+    usuario.save()
+    return render(request, 'usuario_templates/creacion.html', {"usuario": usuario})

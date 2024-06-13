@@ -8,5 +8,5 @@ urlpatterns = [
     path('template3/<str:nombre>/<str:apellido>/<int:edad>', views.template3),
     path('template4/<str:nombre>/<str:apellido>/<int:edad>', views.template4),
     path('probando/', views.probando, name="probando"),
-    path('autos/crear/<str:marca>/<str:modelo>', views.crear_auto, name="crear_auto")
+    path('usuarios/crear/<str:nombre>/<str:apellido>', views.crear_usuario, name="crear_usuario")
 ]
