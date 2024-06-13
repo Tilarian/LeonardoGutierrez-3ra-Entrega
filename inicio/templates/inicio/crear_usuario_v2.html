@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Sugerencias
+{% endblock title_head %}
+
+{% block h1_header %}
+Envía tu sugerencia
+{% endblock h1_header %}
+
+{% block main %}
+<div>
+    <div>
+        <div>
+            <form class="formulario" action={% url "crear_usuario_v2" %} method="POST">
+                {% csrf_token %}
+{% comment %}
+                    <div>
+                        <input type="text" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div>
+                        <input type="text" name="apellido" placeholder="Apellido">
+                    </div>
+                    <div>
+                        <input type="text" name="correo" placeholder="Correo">
+                    </div>
+                    <div>
+                        <input type="text" name="sugerencia" placeholder="Sugerencia">
+                    </div>
+{% endcomment %}
+
+                     {{formulario}}
+                <input type="submit" value="Enviar">
+        </div>
+    </div>
+</div>
+
+
+
+</form>
+{% endblock main %}
