@@ -32,13 +32,15 @@
                 <a class="navbar-brand" href={% url "crear_usuario_v2" %}>Sugerencias</a>
                 <a class="navbar-brand" href={% url "usuarios" %}>Usuarios</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                {% block loquesea %}
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Redes</a></li>
                     </ul>
                 </div>
+                {% endblock loquesea %}
             </div>
         </nav>
         <!-- Masthead-->
@@ -53,9 +55,9 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                            Illo libero eos quod itaque obcaecati totam.</p>
-                        <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+                        {% block div_sub %}
+                        <p class="text-white-75 mb-5"></p>
+                        {% endblock div_sub %}
                     </div>
                 </div>
             </div>
@@ -64,7 +66,7 @@
         <main>
             {% block main %}{% endblock main %}
         </main>
-
+        {% block content %}
         <!-- About-->
         <section class="page-section bg-primary" id="about">
             <div class="container px-4 px-lg-5">
@@ -75,13 +77,12 @@
                         <p class="text-white-75 mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia, 
                             deserunt optio, quam eum mollitia odio quos, ut accusantium dignissimos nam neque quia 
                             dolorum quibusdam sit! Quam minima corporis aspernatur. Atque.</p>
-                        <a class="btn btn-light btn-xl" href="#">Lorem, ipsum.!</a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Portfolio-->
-        <div id="portfolio">
+         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
@@ -141,6 +142,7 @@
                 </div>
             </div>
         </div>
+         
         <!-- 000-->
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
@@ -157,6 +159,7 @@
                 </div>
             </div>
         </section>
+        {% endblock content %}
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2024 - Tilarian's Project</div></div>
