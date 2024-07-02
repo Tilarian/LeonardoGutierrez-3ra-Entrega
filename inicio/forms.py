@@ -5,3 +5,9 @@ class CrearFormulario(forms.Form):
     apellido = forms.CharField(max_length=20)
     correo = forms.CharField(max_length=20)
     sugerencia = forms.CharField(max_length=200)
+    
+class EditarFormulario(CrearFormulario):
+    ...
+    
+class BuscarUsuario(forms.Form):
+    nombre= forms.CharField(max_length=20, required=False)

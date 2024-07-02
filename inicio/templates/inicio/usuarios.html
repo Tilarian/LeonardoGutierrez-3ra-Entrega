@@ -19,10 +19,16 @@ Usuarios
 {% endblock loquesea %}
 
 {% block main %}
+
+<form action={% url "usuarios" %} method="get">
+    {{formulario}}
+    <input type="submit" value="Buscar usuario">
+</form>
+
 {% if usuarios %}
 <ul>
     {% for usuario in usuarios %}
-    <li>{{usuario}}</li>
+    <li>{{usuario}} | <a href={% url "eliminar_usuario" usuario.id%}>Eliminar</a> | <a href={% url "editar_usuario" usuario.id%}>Editar</a></li>
     {% endfor %}
 </ul>
 {% else %}
