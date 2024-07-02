@@ -28,7 +28,10 @@ Usuarios
 {% if usuarios %}
 <ul>
     {% for usuario in usuarios %}
-    <li>{{usuario}} | <a href={% url "eliminar_usuario" usuario.id%}>Eliminar</a> | <a href={% url "editar_usuario" usuario.id%}>Editar</a></li>
+    <li>{{usuario}} | 
+        <a href={% url "eliminar_usuario" usuario.id%}>Eliminar</a> | 
+        <a href={% url "editar_usuario" usuario.id%}>Editar</a>
+    </li>
     {% endfor %}
 </ul>
 {% else %}
