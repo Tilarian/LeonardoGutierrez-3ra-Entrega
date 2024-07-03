@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-Crear comentario
+Registro
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear comentario
+Registro
 {% endblock h1_header %}
 
 {% block div_sub %}
-<p class="text-white-75 mb-5">Aquí se crean los comentarios</p>
+<p class="text-white-75 mb-5">Aquí se registra un usuario</p>
 {% endblock div_sub %}
 
 {% block nav %}
@@ -20,13 +20,13 @@ Crear comentario
 
 {% block main %}
 
-<form class="formulario" action={% url "create_comment" %} method="POST">
+<form class="formulario" action={% url "register" %} method="POST">
                 
     {% csrf_token %}
 
-    {{form}}
+    {{formulario}}
 
-    <input type="submit" value="Crear">
+    <input type="submit" value="Registrarse">
 </form>
 
 {% endblock main %}
