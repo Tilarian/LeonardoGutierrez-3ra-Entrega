@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Users
+{% endblock title_head %}
+
+{% block content %}
+{% endblock %}
+
+{% block h1_header %}
+Users
+{% endblock h1_header %}
+
+{% block div_sub %}
+<p class="text-white-75 mb-5">Aquí se podrán ver los users creados</p>
+{% endblock div_sub %}
+
+{% block loquesea %}
+{% endblock loquesea %}
+
+{% block main %}
+
+<a href={% url "create_user" %}>Crear user</a>
+
+{% if users %}
+<ul>
+    {% for user in users %}
+    <li>{{user}} | 
+        {% comment "" %} 
+        <a href={% url "delete_user" user.id%}>Eliminar</a> |
+        <a href={% url "edit_user" user.id%}>Editar</a> |
+        {% endcomment %}
+        <a href={% url "display_user" user.id%}>Ver</a> 
+
+
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay users creados</p>
+{% endif %}
+{% endblock main %}

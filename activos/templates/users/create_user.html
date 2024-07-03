@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Crear user
+{% endblock title_head %}
+
+{% block h1_header %}
+Crear user
+{% endblock h1_header %}
+
+{% block div_sub %}
+<p class="text-white-75 mb-5">Aquí se crean los users</p>
+{% endblock div_sub %}
+
+{% block loquesea %}
+{% endblock loquesea %}
+
+{% block content %}
+{% endblock %}
+
+{% block main %}
+
+<form class="formulario" action={% url "create_user" %} method="POST">
+                
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock main %}

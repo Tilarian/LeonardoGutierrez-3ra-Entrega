@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title_head %}
+User
+{% endblock title_head %}
+{% block h1_header %}
+{{user}}
+{% endblock h1_header %}
+
+
+{% block main %}
+<ul>
+    <li>Nombre: {{user.name}}</li>
+    <li>Apellido: {{user.surname}}</li>
+    <li>Correo: {{user.email}}</li>
+    <li>Edad: {{user.age}}</li>
+</ul>
+{% endblock main %}
+
+{% block content %}
+{% endblock %}
