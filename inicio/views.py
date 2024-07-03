@@ -29,7 +29,7 @@ def crear_usuario_v2(request):
         formulario = CrearFormulario(request.POST)
         if formulario.is_valid():
             datos = formulario.cleaned_data
-            usuario = Usuario(nombre=datos.get('nombre'), apellido=datos.get('apellido'), correo=datos.get('correo'), sugerencia=datos.get('sugerencia'))
+            usuario = Usuario(nombre=datos.get('nombre'), apellido=datos.get('apellido'), correo=datos.get('correo'), edad=datos.get('edad'))
             usuario.save()
             return redirect('usuarios')
         
@@ -55,7 +55,7 @@ def eliminar_usuario(request, id):
 def editar_usuario(request, id):
     usuario = Usuario.objects.get(id=id)
     
-    formulario = EditarFormulario(initial={'nombre': usuario.nombre, 'apellido' :usuario.apellido, 'correo' :usuario.correo, 'sugerencia' :usuario.sugerencia})
+    formulario = EditarFormulario(initial={'nombre': usuario.nombre, 'apellido' :usuario.apellido, 'correo' :usuario.correo, 'edad' :usuario.edad})
     
     if request.method == 'POST':
         formulario = EditarFormulario(request.POST)
@@ -65,7 +65,7 @@ def editar_usuario(request, id):
             usuario.nombre = info['nombre']
             usuario.apellido = info['apellido']
             usuario.correo = info['correo']
-            usuario.sugerencia = info['sugerencia']
+            usuario.edad = info['edad']
             usuario.save()
             return redirect('usuarios')
         
