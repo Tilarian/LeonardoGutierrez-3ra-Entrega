@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-Crear comentario
+Eliminar comentario
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear comentario
+Eliminar comentario
 {% endblock h1_header %}
 
 {% block div_sub %}
-<p class="text-white-75 mb-5">Aquí se crean los comentarios</p>
+<p class="text-white-75 mb-5">Aquí se eliminan los comentarios</p>
 {% endblock div_sub %}
 
 {% block loquesea %}
@@ -20,13 +20,10 @@ Crear comentario
 
 {% block main %}
 
-<form class="formulario" action={% url "create_user" %} method="POST">
-                
+<form class="formulario" action={% url "delete_comment" comment.id%} method="POST">     
     {% csrf_token %}
-
-    {{form}}
-
-    <input type="submit" value="Crear">
+    <p>Desea confirmar la eliminación del comentario {{comment}}?</p>
+    <input type="submit" value="Confirmar">
 </form>
 
 {% endblock main %}

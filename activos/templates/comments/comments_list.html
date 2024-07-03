@@ -20,15 +20,15 @@ Comentarios
 
 {% block main %}
 
-<a href={% url "create_user" %}>Crear comentario</a>
+<a href={% url "create_comment" %}>Crear comentario</a>
 
-{% if users %}
+{% if comments %}
 <ul>
-    {% for user in users %}
-    <li>{{user}} | 
-        <a href={% url "delete_user" user.id%}>Eliminar</a> |
-        <a href={% url "edit_user" user.pk%}>Editar</a> |
-        <a href={% url "display_user" user.id%}>Ver</a> 
+    {% for comment in comments %}
+    <li>{{comment}} | 
+        <a href={% url "delete_comment" comment.id%}>Eliminar</a> |
+        <a href={% url "edit_comment" comment.pk%}>Editar</a> |
+        <a href={% url "display_comment" comment.id%}>Ver</a> 
     </li>
     {% endfor %}
 </ul>

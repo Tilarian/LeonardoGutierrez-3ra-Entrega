@@ -3,16 +3,16 @@
 Comentario
 {% endblock title_head %}
 {% block h1_header %}
-{{user}}
+{{comment}}
 {% endblock h1_header %}
 
 
 {% block main %}
 <ul>
-    <li>Nombre: {{user.name}}</li>
-    <li>Apellido: {{user.surname}}</li>
-    <li>Correo: {{user.email}}</li>
-    <li>Edad: {{user.age}}</li>
+    <li>Nombre: {{comment.name}}</li>
+    <li>Apellido: {{comment.surname}}</li>
+    <li>Correo: {{comment.email}}</li>
+    <li>Edad: {{comment.age}}</li>
 </ul>
 {% endblock main %}
 

@@ -3,31 +3,31 @@ from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
-from .models import User
+from .models import Comment
 from django.urls import reverse_lazy
 
-class Users(ListView):
-    model = User
-    template_name = 'users/users_list.html'
-    context_object_name = 'users'
+class Comments(ListView):
+    model = Comment
+    template_name = 'comments/comments_list.html'
+    context_object_name = 'comments'
     
-class CreateUser(CreateView):
-    model = User
-    template_name = 'users/create_user.html'
-    success_url = reverse_lazy('users')
+class CreateComment(CreateView):
+    model = Comment
+    template_name = 'comments/create_comment.html'
+    success_url = reverse_lazy('comments')
     fields = ['name','surname','email','age']
     
-class EditUser(UpdateView):
-    model = User
-    template_name = 'users/edit_user.html'
-    success_url = reverse_lazy('users')
+class EditComment(UpdateView):
+    model = Comment
+    template_name = 'comments/edit_comment.html'
+    success_url = reverse_lazy('comments')
     fields = ['name','surname','email','age']
 
-class DisplayUser(DetailView):
-    model = User
-    template_name = 'users/display_user.html'
+class DisplayComment(DetailView):
+    model = Comment
+    template_name = 'comments/display_comment.html'
     
-class DeleteUser(DeleteView):
-    model = User
-    template_name = 'users/delete_user.html'
-    success_url = reverse_lazy('users')
+class DeleteComment(DeleteView):
+    model = Comment
+    template_name = 'comments/delete_comment.html'
+    success_url = reverse_lazy('comments')
