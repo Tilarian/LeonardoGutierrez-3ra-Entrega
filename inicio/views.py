@@ -70,3 +70,7 @@ def editar_usuario(request, id):
             return redirect('usuarios')
         
     return render(request, 'inicio/editar_usuario.html', {'formulario': formulario, 'usuario': usuario})
+
+def ver_usuario(request, id):
+    usuario = Usuario.objects.get(id=id)
+    return render(request, 'inicio/ver_usuario.html', {'usuario': usuario})
