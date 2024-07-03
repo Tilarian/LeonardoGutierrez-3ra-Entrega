@@ -20,7 +20,7 @@ Editar comentario
 
 {% block main %}
 
-<form class="formulario" action={% url "edit_user" comment.id%} method="POST">
+<form class="formulario" action={% url "edit_comment" comment.id%} method="POST">
                 
     {% csrf_token %}
 
