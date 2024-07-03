@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-Users
+Comentarios
 {% endblock title_head %}
 
 {% block content %}
 {% endblock %}
 
 {% block h1_header %}
-Users
+Comentarios
 {% endblock h1_header %}
 
 {% block div_sub %}
-<p class="text-white-75 mb-5">Aquí se podrán ver los users creados</p>
+<p class="text-white-75 mb-5">Aquí se podrán ver los comentarios creados</p>
 {% endblock div_sub %}
 
 {% block nav %}
@@ -20,7 +20,7 @@ Users
 
 {% block main %}
 
-<a href={% url "create_user" %}>Crear user</a>
+<a href={% url "create_user" %}>Crear comentario</a>
 
 {% if users %}
 <ul>
@@ -33,6 +33,6 @@ Users
     {% endfor %}
 </ul>
 {% else %}
-<p>No hay users creados</p>
+<p>No hay comentarios creados</p>
 {% endif %}
 {% endblock main %}

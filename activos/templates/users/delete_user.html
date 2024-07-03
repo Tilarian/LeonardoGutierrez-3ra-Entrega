@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-Eliminar user
+Eliminar comentario
 {% endblock title_head %}
 
 {% block h1_header %}
-Eliminar user
+Eliminar comentario
 {% endblock h1_header %}
 
 {% block div_sub %}
-<p class="text-white-75 mb-5">Aquí se eliminan los users</p>
+<p class="text-white-75 mb-5">Aquí se eliminan los comentarios</p>
 {% endblock div_sub %}
 
 {% block loquesea %}
@@ -22,7 +22,7 @@ Eliminar user
 
 <form class="formulario" action={% url "delete_user" user.id%} method="POST">     
     {% csrf_token %}
-    <p>Desea confirmar la eliminación del user {{user}}</p>
+    <p>Desea confirmar la eliminación del comentario {{user}}?</p>
     <input type="submit" value="Confirmar">
 </form>
 
