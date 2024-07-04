@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from .models import Comment
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class Comments(ListView):
     model = Comment
@@ -17,7 +18,7 @@ class CreateComment(CreateView):
     success_url = reverse_lazy('comments')
     fields = ['nombre','apellido','comentario','edad']
     
-class EditComment(UpdateView):
+class EditComment(LoginRequiredMixin, UpdateView):
     model = Comment
     template_name = 'comments/edit_comment.html'
     success_url = reverse_lazy('comments')
@@ -27,7 +28,7 @@ class DisplayComment(DetailView):
     model = Comment
     template_name = 'comments/display_comment.html'
     
-class DeleteComment(DeleteView):
+class DeleteComment(LoginRequiredMixin, DeleteView):
     model = Comment
     template_name = 'comments/delete_comment.html'
     success_url = reverse_lazy('comments')

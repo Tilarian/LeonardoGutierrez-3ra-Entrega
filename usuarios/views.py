@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate, login as django_login
 from usuarios.forms import FormularioRegistro
+from django.contrib.auth.decorators import login_required
 
 def login(request):
     
@@ -32,3 +33,10 @@ def register(request):
             return redirect('login')
         
     return render(request, 'usuarios/register.html', {'formulario': formulario})
+
+@login_required
+def modify_user(request):
+    
+    formulario = UserChangeForm()
+    
+    return render(request, 'usuarios/modify_user.html',{'formulario': formulario})
