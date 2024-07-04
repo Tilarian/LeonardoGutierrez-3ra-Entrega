@@ -9,7 +9,7 @@ Editar usuario
 {% endblock h1_header %}
 
 {% block div_sub %}
-<p class="text-white-75 mb-5">Aquí se editan los comentarios</p>
+<p class="text-white-75 mb-5">Aquí puedes editar tu usuario</p>
 {% endblock div_sub %}
 
 {% block nav %}
@@ -20,13 +20,11 @@ Editar usuario
 
 {% block main %}
 
-<form action={% url "modify_user" %} method="POST">
-                
+<form action={% url "modify_user" %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
-
     {{formulario}}
-
-    <input type="submit" value="Actualizar">
+    <input type="submit" value="Aplicar">
 </form>
 
+<a href={% url "modify_pass" %}>Cambiar contraseña</a>
 {% endblock main %}

@@ -1,8 +1,12 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate, login as django_login
-from usuarios.forms import FormularioRegistro
+from usuarios.forms import FormularioRegistro, ModifyUser
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+from usuarios.models import UserDetails
 
 def login(request):
     
@@ -17,6 +21,8 @@ def login(request):
             user = authenticate(username=usuario, password=contrasenia)
             
             django_login(request, user)
+            
+            UserDetails.objects.get_or_create(user=user)
             
             return redirect('inicio')
     
@@ -37,6 +43,23 @@ def register(request):
 @login_required
 def modify_user(request):
     
-    formulario = UserChangeForm()
+    formulario = ModifyUser(initial={'avatar': request.user.userdetails.avatar}, instance=request.user)
+    
+    if request.method == "POST":
+        formulario = ModifyUser(request.POST, request.FILES, instance=request.user)
+        if formulario.is_valid():
+            
+            userdetails = request.user.userdetails
+            
+            userdetails.avatar = formulario.cleaned_data.get('avatar')
+            userdetails.save()
+            
+            formulario.save()
+            return redirect('modify_user')
     
     return render(request, 'usuarios/modify_user.html',{'formulario': formulario})
+
+
+class ModifyPassword(PasswordChangeView):
+    template_name = 'usuarios/modify_pass.html'
+    success_url = reverse_lazy('modify_user')
