@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Usuario
+{% endblock title_head %}
+
+{% block h1_header %}
+{{user}}
+{% endblock h1_header %}
+
+{% block div_sub %}
+<div>
+    <img src="{{request.user.userdetails.avatar.url}}" alt="avatar" height="200px" style="border-radius: 50%">
+</div>
+{% endblock div_sub %}
+
+{% block nav %}
+{% endblock nav %}
+
+{% block content %}
+{% endblock %}
+
+{% block main %}
+<ul>
+    <li>Nombre: {{user.first_name}}</li>
+    <li>Apellido: {{user.last_name}}</li>
+    <li>Pasatiempo: {{user.hobby}}</li>
+    <li>Email: {{user.email}}</li>
+</ul>
+<a href={% url "modify_user" %}>Modificar usuario</a>
+{% endblock main %}

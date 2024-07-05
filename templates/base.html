@@ -39,9 +39,9 @@
                 </div>
             </div>
             {% if request.user.is_authenticated %}
-            <a class="navbar-brand" href={% url "modify_user" %}>
+            <a class="navbar-brand" href={% url "info_user" %}>
                 {% if request.user.userdetails.avatar %}
-                <img src="{{request.user.userdetails.avatar.url}}" alt="Avatar" height="50px">
+                <img src="{{request.user.userdetails.avatar.url}}" alt="Avatar" height="50px"style="border-radius: 50%">
                 {% endif %}
                 {{request.user.username}}
             </a>
