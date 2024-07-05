@@ -16,13 +16,13 @@ class CreateComment(CreateView):
     model = Comment
     template_name = 'comments/create_comment.html'
     success_url = reverse_lazy('comments')
-    fields = ['nombre','apellido','comentario','edad']
+    fields = ['nombre','apellido','comentario','edad','fecha']
     
 class EditComment(LoginRequiredMixin, UpdateView):
     model = Comment
     template_name = 'comments/edit_comment.html'
     success_url = reverse_lazy('comments')
-    fields = ['nombre','apellido','comentario','edad']
+    fields = ['nombre','apellido','comentario','edad','fecha',]
 
 class DisplayComment(DetailView):
     model = Comment
