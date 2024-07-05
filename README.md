@@ -20,3 +20,7 @@ Básicamente es un prototipo de portfolio. No debería de tener muchas funciones
 - Listar información del usuario logeado
 - Cambiar información del usuario (nombre,apellido,correo,contraseña,avatar,etc)
 - Cambiar contraseña
+
+## Datos
+
+- Por alguna razón no estaría pudiendo modificar algunos estilos como los de los logos en el footer, quizás el causante se bootstrap
