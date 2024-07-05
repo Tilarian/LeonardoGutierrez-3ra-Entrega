@@ -41,6 +41,12 @@ def register(request):
     return render(request, 'usuarios/register.html', {'formulario': formulario})
 
 @login_required
+def info_user(request):
+    userdetails = request.user.userdetails
+    ModifyUser(initial={'avatar': userdetails.avatar}, instance=request.user)
+    return render(request, 'usuarios/info_user.html')
+
+@login_required
 def modify_user(request):
     
     userdetails = request.user.userdetails
@@ -56,13 +62,7 @@ def modify_user(request):
     
     return render(request, 'usuarios/modify_user.html',{'formulario': formulario})
 
-
 class ModifyPassword(PasswordChangeView):
     template_name = 'usuarios/modify_pass.html'
     success_url = reverse_lazy('modify_user')
     
-@login_required
-def info_user(request):
-    userdetails = request.user.userdetails
-    ModifyUser(initial={'avatar': userdetails.avatar}, instance=request.user)
-    return render(request, 'usuarios/info_user.html')

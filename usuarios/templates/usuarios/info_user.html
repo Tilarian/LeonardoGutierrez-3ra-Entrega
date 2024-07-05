@@ -9,9 +9,9 @@ Usuario
 {% endblock h1_header %}
 
 {% block div_sub %}
-<div>
-    <img src="{{request.user.userdetails.avatar.url}}" alt="avatar" height="200px" style="border-radius: 50%">
-</div>
+{% if request.user.userdetails.avatar %}
+<img src="{{request.user.userdetails.avatar.url}}" alt="Avatar" height="200px"style="border-radius: 50%">
+{% endif %}
 {% endblock div_sub %}
 
 {% block nav %}
@@ -21,11 +21,10 @@ Usuario
 {% endblock %}
 
 {% block main %}
-<ul>
-    <li>Nombre: {{user.first_name}}</li>
-    <li>Apellido: {{user.last_name}}</li>
-    <li>Pasatiempo: {{user.hobby}}</li>
-    <li>Email: {{user.email}}</li>
-</ul>
+    <ul>
+        <li>Nombre: {{user.first_name}}</li>
+        <li>Apellido: {{user.last_name}}</li>
+        <li>Email: {{user.email}}</li>
+    </ul>
 <a href={% url "modify_user" %}>Modificar usuario</a>
 {% endblock main %}
