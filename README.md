@@ -23,4 +23,4 @@ Básicamente es un prototipo de portfolio. No debería de tener muchas funciones
 
 ## Datos
 
-- Por alguna razón no estaría pudiendo modificar algunos estilos como los de los logos en el footer, quizás el causante se bootstrap
+- Por alguna razón no estaría pudiendo modificar algunos estilos como los de los logos en el footer, quizás el causante sea bootstrap
