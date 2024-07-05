@@ -22,7 +22,7 @@ class EditComment(LoginRequiredMixin, UpdateView):
     model = Comment
     template_name = 'comments/edit_comment.html'
     success_url = reverse_lazy('comments')
-    fields = ['nombre','apellido','comentario','edad','fecha',]
+    fields = ['nombre','apellido','comentario','edad','fecha']
 
 class DisplayComment(DetailView):
     model = Comment

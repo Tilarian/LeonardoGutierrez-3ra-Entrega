@@ -20,7 +20,7 @@ Crear comentario
 
 {% block main %}
 
-<form class="formulario" action={% url "create_comment" %} method="POST">
+<form action={% url "create_comment" %} method="POST">
                 
     {% csrf_token %}
 

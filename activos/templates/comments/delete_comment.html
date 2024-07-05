@@ -20,7 +20,7 @@ Eliminar comentario
 
 {% block main %}
 
-<form class="formulario" action={% url "delete_comment" comment.id%} method="POST">     
+<form action={% url "delete_comment" comment.id%} method="POST">     
     {% csrf_token %}
     <p>Desea confirmar la eliminación del comentario de {{comment}}?</p>
     <input type="submit" value="Confirmar">
