@@ -43,17 +43,14 @@ def register(request):
 @login_required
 def modify_user(request):
     
-    formulario = ModifyUser(initial={'avatar': request.user.userdetails.avatar}, instance=request.user)
+    userdetails = request.user.userdetails
+    formulario = ModifyUser(initial={'avatar': userdetails.avatar}, instance=request.user)
     
     if request.method == "POST":
         formulario = ModifyUser(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
-            
-            userdetails = request.user.userdetails
-            
             userdetails.avatar = formulario.cleaned_data.get('avatar')
             userdetails.save()
-            
             formulario.save()
             return redirect('modify_user')
     
