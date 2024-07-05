@@ -25,6 +25,7 @@ Usuario
         <li>Nombre: {{user.first_name}}</li>
         <li>Apellido: {{user.last_name}}</li>
         <li>Email: {{user.email}}</li>
+        <li>Hobby: {{user.userdetails.hobby}}</li>
     </ul>
 <a href={% url "modify_user" %}>Modificar usuario</a>
 {% endblock main %}

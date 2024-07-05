@@ -43,19 +43,20 @@ def register(request):
 @login_required
 def info_user(request):
     userdetails = request.user.userdetails
-    ModifyUser(initial={'avatar': userdetails.avatar}, instance=request.user)
+    ModifyUser(initial={'hobby': userdetails.hobby,'avatar': userdetails.avatar}, instance=request.user)
     return render(request, 'usuarios/info_user.html')
 
 @login_required
 def modify_user(request):
     
     userdetails = request.user.userdetails
-    formulario = ModifyUser(initial={'avatar': userdetails.avatar}, instance=request.user)
+    formulario = ModifyUser(initial={'hobby': userdetails.hobby,'avatar': userdetails.avatar}, instance=request.user)
     
     if request.method == "POST":
         formulario = ModifyUser(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             userdetails.avatar = formulario.cleaned_data.get('avatar')
+            userdetails.hobby = formulario.cleaned_data.get('hobby')
             userdetails.save()
             formulario.save()
             return redirect('modify_user')
